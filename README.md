@@ -1,7 +1,3 @@
-Here's a concise **description** for your **README** file:  
-
----
-
 # Volunteer Registration System  
 
 A Flask-based web application that allows volunteers to submit their details through an online form. The data is securely stored in an **Oracle Database** for record-keeping.  
@@ -28,5 +24,3 @@ A Flask-based web application that allows volunteers to submit their details thr
    python app.py
    ```  
 4. Access the app at `http://localhost:5000`  
-
-Let me know if you need any modifications! 🚀
