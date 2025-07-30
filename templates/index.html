@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain View Community Hospital - Volunteer Application</title>
+    <style>
+        /* Keep existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgb(195, 243, 245);
+            border: 1px solid #999;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        h2 {
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #999;
+            padding-bottom: 5px;
+            margin: 20px 0 15px 0;
+        }
+        h3 {
+            font-size: 14px;
+            color: #444;
+            margin: 15px 0 10px 0;
+            background-color: #d1e7ff;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        label {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 14px;
+        }
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #999;
+            background-color: white;
+        }
+        .radio-group {
+            margin-bottom: 10px;
+        }
+        .radio-group label {
+            display: inline;
+            margin-right: 15px;
+        }
+        .radio-group input {
+            margin-right: 5px;
+        }
+        .availability-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        .availability-table th,
+        .availability-table td {
+            border: 1px solid #999;
+            padding: 5px;
+            text-align: center;
+        }
+        .availability-table th {
+            background-color: #f0f0f0;
+        }
+        .reference {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <div class="title">Mountain View Community Hospital<br>VOLUNTEER APPLICATION</div>
+        </div>
+        <form action="{{ url_for('volunteer_form') }}" method="POST">
+            <!-- Personal Information -->
+            <div class="form-section">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" required>
+
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" required>
+
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="street_address">Street Address</label>
+                <input type="text" id="street_address" name="street_address" required>
+
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required>
+
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" required>
+
+                <label for="home_phone">Home Phone</label>
+                <input type="tel" id="home_phone" name="home_phone" required>
+
+                <label for="work_phone">Work Phone</label>
+                <input type="tel" id="work_phone" name="work_phone">
+
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <div class="radio-group">
+                    <label>Have you been convicted of a felony within the past seven years?</label>
+                    <input type="radio" id="convicted_felony_no" name="convicted_felony" value="no" required>
+                    <label for="convicted_felony_no">NO</label>
+                    <input type="radio" id="convicted_felony_yes" name="convicted_felony" value="yes">
+                    <label for="convicted_felony_yes">YES</label>
+                    <label>If YES, please explain:</label>
+                    <input type="text" id="felony_explanation" name="felony_explanation">
+                </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <h2>Emergency Contact</h2>
+            <div class="form-section">
+                <label for="emergency_last_name">Last Name</label>
+                <input type="text" id="emergency_last_name" name="emergency_last_name" required>
+
+                <label for="emergency_first_name">First Name</label>
+                <input type="text" id="emergency_first_name" name="emergency_first_name" required>
+
+                <label for="emergency_relationship">Relationship</label>
+                <input type="text" id="emergency_relationship" name="emergency_relationship" required>
+
+                <label for="emergency_phone">Phone</label>
+                <input type="tel" id="emergency_phone" name="emergency_phone" required>
+            </div>
+
+            <!-- References -->
+            <h2>References (Not Relatives)</h2>
+            <div class="form-section">
+                <!-- Reference 1 -->
+                <div class="reference">
+                    <h3>First Reference</h3>
+                    <label for="reference1_last_name">Last Name</label>
+                    <input type="text" id="reference1_last_name" name="reference1_last_name" required>
+
+                    <label for="reference1_first_name">First Name</label>
+                    <input type="text" id="reference1_first_name" name="reference1_first_name" required>
+
+                    <label for="reference1_relationship">Relationship</label>
+                    <input type="text" id="reference1_relationship" name="reference1_relationship" required>
+
+                    <label for="reference1_phone">Phone</label>
+                    <input type="tel" id="reference1_phone" name="reference1_phone" required>
+
+                    <label for="reference1_address">Address</label>
+                    <input type="text" id="reference1_address" name="reference1_address" required>
+
+                    <label for="reference1_city">City</label>
+                    <input type="text" id="reference1_city" name="reference1_city" required>
+
+                    <label for="reference1_state">State</label>
+                    <input type="text" id="reference1_state" name="reference1_state" required>
+
+                    <label for="reference1_zip">Zip</label>
+                    <input type="text" id="reference1_zip" name="reference1_zip" required>
+                </div>
+
+                <!-- Reference 2 -->
+                <div class="reference">
+                    <h3>Second Reference</h3>
+                    <label for="reference2_last_name">Last Name</label>
+                    <input type="text" id="reference2_last_name" name="reference2_last_name" required>
+
+                    <label for="reference2_first_name">First Name</label>
+                    <input type="text" id="reference2_first_name" name="reference2_first_name" required>
+
+                    <label for="reference2_relationship">Relationship</label>
+                    <input type="text" id="reference2_relationship" name="reference2_relationship" required>
+
+                    <label for="reference2_phone">Phone</label>
+                    <input type="tel" id="reference2_phone" name="reference2_phone" required>
+
+                    <label for="reference2_address">Address</label>
+                    <input type="text" id="reference2_address" name="reference2_address" required>
+
+                    <label for="reference2_city">City</label>
+                    <input type="text" id="reference2_city" name="reference2_city" required>
+
+                    <label for="reference2_state">State</label>
+                    <input type="text" id="reference2_state" name="reference2_state" required>
+
+                    <label for="reference2_zip">Zip</label>
+                    <input type="text" id="reference2_zip" name="reference2_zip" required>
+                </div>
+            </div>
+
+                        <!-- Employment -->
+                        <h2>Current or Last Employment</h2>
+                        <div class="form-section">
+                            <label for="employer_name">Name of Employer</label>
+                            <input type="text" id="employer_name" name="employer_name">
+            
+                            <label for="employer_address">Employer Address</label>
+                            <input type="text" id="employer_address" name="employer_address">
+            
+                            <label for="position">Position (Type of Work)</label>
+                            <input type="text" id="position" name="position">
+            
+                            <label for="employment_dates">Dates of Employment</label>
+                            <input type="text" id="employment_dates" name="employment_dates">
+                        </div>
+            
+                        <!-- Prior Volunteer Service -->
+                        <h2>Prior Volunteer Service</h2>
+                        <div class="form-section">
+                            <div class="radio-group">
+                                <label>Have you volunteered at Mountain View Community Hospital before?</label>
+                                <input type="radio" id="prior_mvch_volunteer_no" name="prior_mvch_volunteer" value="no" required>
+                                <label for="prior_mvch_volunteer_no">NO</label>
+                                <input type="radio" id="prior_mvch_volunteer_yes" name="prior_mvch_volunteer" value="yes">
+                                <label for="prior_mvch_volunteer_yes">YES</label>
+                                <label>If YES, please list:</label>
+                                <input type="text" id="mvch_volunteer_details" name="mvch_volunteer_details">
+                            </div>
+            
+                            <div class="radio-group">
+                                <label>Do you have previous volunteer experience elsewhere?</label>
+                                <input type="radio" id="prior_experience_no" name="prior_experience" value="no" required>
+                                <label for="prior_experience_no">NO</label>
+                                <input type="radio" id="prior_experience_yes" name="prior_experience" value="yes">
+                                <label for="prior_experience_yes">YES</label>
+                                <label>If YES, please list:</label>
+                                <input type="text" id="experience_details" name="experience_details">
+                            </div>
+                        </div>
+            
+                        <!-- Interests & Preferences -->
+                        <h2>Interests & Preferences</h2>
+                        <div class="form-section">
+                            <label for="reason_to_volunteer">Why do you want to become a volunteer?</label>
+                            <textarea id="reason_to_volunteer" name="reason_to_volunteer" rows="2" required></textarea>
+            
+                            <label for="hobbies">What are your hobbies, skills, other interests?</label>
+                            <textarea id="hobbies" name="hobbies" rows="2" required></textarea>
+            
+                            <label for="languages">Which languages do you speak?</label>
+                            <textarea id="languages" name="languages" rows="2" required></textarea>
+            
+                            <label for="envision_volunteer_role">What do you envision yourself doing as a volunteer?</label>
+                            <textarea id="envision_volunteer_role" name="envision_volunteer_role" rows="2" required></textarea>
+            
+                            <label>Please indicate days and times when you are available to volunteer:</label>
+                            <table class="availability-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Mon</th>
+                                        <th>Tues</th>
+                                        <th>Wed</th>
+                                        <th>Thur</th>
+                                        <th>Fri</th>
+                                        <th>Sat</th>
+                                        <th>Sun</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Morning</td>
+                                        <td><input type="checkbox" name="monday_morning" value="1"></td>
+                                        <td><input type="checkbox" name="tuesday_morning" value="1"></td>
+                                        <td><input type="checkbox" name="wednesday_morning" value="1"></td>
+                                        <td><input type="checkbox" name="thursday_morning" value="1"></td>
+                                        <td><input type="checkbox" name="friday_morning" value="1"></td>
+                                        <td><input type="checkbox" name="saturday_morning" value="1"></td>
+                                        <td><input type="checkbox" name="sunday_morning" value="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Afternoon</td>
+                                        <td><input type="checkbox" name="monday_afternoon" value="1"></td>
+                                        <td><input type="checkbox" name="tuesday_afternoon" value="1"></td>
+                                        <td><input type="checkbox" name="wednesday_afternoon" value="1"></td>
+                                        <td><input type="checkbox" name="thursday_afternoon" value="1"></td>
+                                        <td><input type="checkbox" name="friday_afternoon" value="1"></td>
+                                        <td><input type="checkbox" name="saturday_afternoon" value="1"></td>
+                                        <td><input type="checkbox" name="sunday_afternoon" value="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Evening</td>
+                                        <td><input type="checkbox" name="monday_evening" value="1"></td>
+                                        <td><input type="checkbox" name="tuesday_evening" value="1"></td>
+                                        <td><input type="checkbox" name="wednesday_evening" value="1"></td>
+                                        <td><input type="checkbox" name="thursday_evening" value="1"></td>
+                                        <td><input type="checkbox" name="friday_evening" value="1"></td>
+                                        <td><input type="checkbox" name="saturday_evening" value="1"></td>
+                                        <td><input type="checkbox" name="sunday_evening" value="1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+            
+                            <label for="signature">Applicant's Signature</label>
+                            <input type="text" id="signature" name="signature" required>
+            
+                            <label for="signature_date">Date</label>
+                            <input type="date" id="signature_date" name="signature_date" required>
+                        </div>
+            
+                        <button type="submit" class="submit-button">Submit Application</button>
+                    </form>
+                </div>
+            </body>
+            

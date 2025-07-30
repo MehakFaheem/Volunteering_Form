@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain View Community Hospital - Volunteer Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-container {
+            background-color: #e6f3ff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #999;
+            padding-bottom: 1rem;
+        }
+
+        .hospital-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .content {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .welcome-text {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .apply-button {
+            display: inline-block;
+            background-color: #4682B4;
+            color: white;
+            padding: 12px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        .apply-button:hover {
+            background-color: #357abd;
+        }
+
+        .links-section {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ccc;
+        }
+
+        .links-text {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: #4682B4;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .separator {
+            color: #999;
+        }
+
+        @media (max-width: 600px) {
+            .main-container {
+                margin: 10px;
+                padding: 1rem;
+            }
+
+            .welcome-text {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .apply-button {
+                padding: 10px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <div class="hospital-title">
+                Mountain View<br>Community Hospital
+            </div>
+        </div>
+
+        <div class="content">
+            <h1 class="welcome-text">Welcome to Our Volunteer Program</h1>
+            
+            <p class="description">
+                Join our dedicated team of volunteers and make a meaningful impact in our community. 
+                Your time and compassion can help us provide better care and support to those in need.
+            </p>
+
+            <a href="/volunteer" class="apply-button">
+                Apply for Volunteering
+            </a>
+
+            <div class="links-section">
+                <p class="links-text">Looking for more information?</p>
+                <div class="nav-links">
+                    <a href="/about">About Our Program</a>
+                    <span class="separator">|</span>
+                    <a href="/contact">Contact Us</a>
+                    <span class="separator">|</span>
+                    <a href="/faq">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
