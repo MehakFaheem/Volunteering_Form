@@ -12,9 +12,12 @@ Flask (Python)
 Oracle Database
 HTML, CSS (Frontend)
 # Setup Instructions:
+
 Install dependencies:
 `pip install flask cx_Oracle`
 Configure your Oracle Database connection.
+
 Run the app:
 `python app.py`
+
 Access the app at `http://localhost:5000`
