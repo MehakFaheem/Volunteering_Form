@@ -15,6 +15,7 @@ HTML, CSS (Frontend)
 
 Install dependencies:
 `pip install flask cx_Oracle`
+
 Configure your Oracle Database connection.
 
 Run the app:
