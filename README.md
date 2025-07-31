@@ -3,8 +3,11 @@ A Flask-based web application that allows volunteers to submit their details thr
 
 # Features:
 ✅ Volunteer registration form with personal, emergency, and availability details
+
 ✅ Stores data in an Oracle Database using cx_Oracle
+
 ✅ User-friendly interface with Flask templates
+
 ✅ Redirects and form validation for better user experience
 
 # Technologies Used:
